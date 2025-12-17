@@ -165,9 +165,9 @@ select {
 }
 
 .btn-secondary {
-    background-color: #333;
-    color: #e0e0e0;
-    border: none;
+    background: transparent;
+    color: #e65100;
+    border: 1px solid #e65100;
     padding: 12px 20px;
     border-radius: 6px;
     font-size: 1rem;
