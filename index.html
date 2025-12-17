@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball DNA Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1><i class="fas fa-dna"></i> Basketball DNA Analyzer</h1>
+        <p>Узнай, на какого игрока NBA ты похож больше всего!</p>
+    </header>
+
+    <main>
+        <section id="inputSection" class="card">
+            <h2><i class="fas fa-user-edit"></i> Твои параметры</h2>
+            <form id="playerForm">
+                <div class="form-group">
+                    <label for="height">Рост (см): <span id="heightValue">180</span></label>
+                    <input type="range" id="height" min="140" max="220" value="180" class="slider">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Предпочитаемая позиция:</label>
+                    <select id="position">
+                        <option value="G">Защитник (Guard)</option>
+                        <option value="F">Форвард (Forward)</option>
+                        <option value="C">Центровой (Center)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Игровые стили:</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" name="styles" value="shooter"> Трехочковый снайпер</label>
+                        <label><input type="checkbox" name="styles" value="playmaker"> Распасовщик</label>
+                        <label><input type="checkbox" name="styles" value="defender"> Защитник</label>
+                        <label><input type="checkbox" name="styles" value="rebounder"> Подбирающий</label>
+                    </div>
+                </div>
+
+                <button type="submit" id="analyzeBtn" class="btn-primary">
+                    <i class="fas fa-search"></i> Проанализировать ДНК
+                </button>
+            </form>
+        </section>
+
+        <section id="resultsSection" class="card hidden">
+            <h2><i class="fas fa-chart-bar"></i> Результат анализа</h2>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Анализируем твое баскетбольное ДНК...</p>
+            </div>
+
+            <div id="matchResult"></div>
+
+            <div class="actions">
+                <button id="saveBtn" class="btn-secondary">
+                    <i class="fas fa-save"></i> Сохранить результат
+                </button>
+                <button id="newAnalysisBtn" class="btn-outline">
+                    <i class="fas fa-redo"></i> Новый анализ
+                </button>
+            </div>
+        </section>
+
+        <section id="historySection" class="card">
+            <h2><i class="fas fa-history"></i> История анализов</h2>
+            <div id="historyList"></div>
+            <button id="clearHistoryBtn" class="btn-danger">
+                <i class="fas fa-trash"></i> Очистить историю
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p>🏀 ЛАБОРАТОРИЯ БАСКЕТБОЛЬНЫХ ДАННЫХ 🏀</p>
+        <p>"Не просто цифры — баскетбольный интеллект"</p>
+    </footer>
+</div>
+<script src="nba-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
